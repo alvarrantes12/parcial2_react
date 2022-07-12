@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
-
+import { getFetch} from "./components/FetchMethods";
+import Post from "./components/Post";
+import List from "./components/List";
+import WithLoadingList from "./components/WithLoadingList";
 function App() {
+
+  const [AppStateLoading, setAppStateLoading] = useState(false);
+  const [appStateObject, setAppstateObject] = useState(null);
+  const [refresh, setRefresh] = useState(true);
+  const LoadingList = WithLoadingList(List);
+  useEffect(() => {
+    
+      if (refresh) {
+          setAppStateLoading(true);
+          getFetch("special_contents").then(val => setAppstateObject(val));
+          setAppStateLoading(false);
+          setRefresh(false);
+      }
+  }, [setAppstateObject, setAppStateLoading, refresh])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div>
+      <LoadingList isLoading={AppStateLoading} contents={appStateObject} nam1={"Table of special contents"} />
+      </div>
+      <br />
+      <div>
+
+  <Post></Post>
     </div>
-  );
+
+    </div>
+  )
 }
+
 
 export default App;
