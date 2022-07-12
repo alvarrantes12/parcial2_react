@@ -10,6 +10,10 @@ function App() {
   
   const [appStateLoading, setAppStateLoading] = useState(false)
   const [appStateObject, setAppStateObject] = useState(null)
+
+  const [appStateLoading2, setAppStateLoading2] = useState(false)
+  const [appStateObject2, setAppStateObject2] = useState(null)
+
   const [refresh, setRefresh] = useState(true);
 
   const refetch = () => {
@@ -25,6 +29,15 @@ function App() {
     }
   }, [appStateObject, appStateLoading, refresh])
 
+  useEffect(() => {
+    if (refresh) {
+      setAppStateLoading2(true);
+      getFetch("special_contents").then(val => setAppStateObject2(val))
+      setAppStateLoading2(false);
+      setRefresh(false);
+    }
+  }, [appStateObject2, appStateLoading2, refresh])
+
 
   return (
     <div className="App">
@@ -33,6 +46,7 @@ function App() {
       </div>
       <div>
         <LoadingList isLoading={appStateLoading} contents={appStateObject}/>
+        <LoadingList isLoading={appStateLoading2} contents={appStateObject2}/>
       </div>
       <PostForm refetch={refetch}/>
     </div>
