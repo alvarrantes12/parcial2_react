@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import List from "./components/List";
 import WithLoadingList from "./components/WithLoadingList";
 import './App.css';
-import { deleteFetch, getFetch, postFetch, putFetch } from "./components/FetchMethods"
+import { getFetch } from "./components/FetchMethods"
 import Form from "./components/forms/Form";
 function App() {
   const LoadingList = WithLoadingList(List);
