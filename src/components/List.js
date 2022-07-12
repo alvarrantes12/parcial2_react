@@ -11,7 +11,7 @@ const List = (props) => {
                 return (
 					<div className="div-list">
                   	  <li key={content.id}>
-                      	  <span className="Component-Title"> <b>Nombre: </b>{content.name} {content.nameContent}
+                      	  <span className="Component-Title"> <b>ID: </b> {content.id} {content.idContent} | <b>Nombre: </b>{content.name} {content.nameContent}
 						  <b> | Descripcion: </b>{content.description}  {content.descriptionContent}</span>
                     	</li>
 					</div>
