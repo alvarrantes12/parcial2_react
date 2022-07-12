@@ -17,7 +17,8 @@ const List = (props) => {
                         </li>
                     </div>
                 );
-            })}
+                })}
+            <h2 className="Component-Title">Contenidos: </h2>
             {contents.map((special_content) => {
                 return (
                     <div style={{background: "yellow", margin: "10px"}}>
@@ -26,7 +27,7 @@ const List = (props) => {
                         </li>
                     </div>
                 );
-            })}
+                })}
         </ul>
     );
 
