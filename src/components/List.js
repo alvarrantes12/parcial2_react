@@ -9,44 +9,6 @@ const List = (props) => {
                 <tr>
                     <th>Identificador</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
-                </tr>
-                <tr>
-                    <td>
-                    {contents.map((content) => {
-                        return (
-                            <div >
-                                <span className="Component-Title">{content.id}</span>    
-                            </div>
-                        );
-                    })}
-                    </td>
-                    <td>
-                    {contents.map((content) => {
-                        return (
-                            <div >
-                                <span className="Component-Title">{content.name}</span>    
-                            </div>
-                        );
-                    })}
-                    </td>
-                    <td>
-                        {contents.map((content) => {
-                            return (
-                                <div >
-                                    <span className="Component-Title">{content.description}</span>    
-                                </div>
-                        );
-                        })}
-                    </td>
-                </tr>  
-            </table>
-
-            <h2 className="Second-Title">Estas son los contenidos especiales disponibles</h2>
-            <table>
-                <tr>
-                    <th>Identificador</th>
-                    <th>Nombre</th>
                 </tr>
                 <tr>
                     <td>

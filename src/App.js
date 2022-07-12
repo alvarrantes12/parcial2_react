@@ -7,9 +7,11 @@ import { getFetch, postFetch } from "./components/FetchMethods";
 
 function App() {
   const LoadingList = WithLoadingList(List);
+  const LoadingListSpecial = WithLoadingList(List);
 
   const [appStateLoading, setAppStateLoading] = useState(false);
   const [appStateObject, setAppStateObject] = useState(null);
+  const [appStateObjectSpecial, setAppStateObjectSpecial] = useState(null)
 
   const[name, setName] = useState("");
   const[description, setDescription] = useState("");
@@ -22,11 +24,12 @@ function App() {
     if (refresh){
       setAppStateLoading(true);
       getFetch("contents").then(val => setAppStateObject(val));
+      getFetch("special_contents").then(val => setAppStateObjectSpecial(val));
       setAppStateLoading(false);
       setRefresh(false);
     }
     
-  }, [setAppStateObject, setAppStateLoading,refresh])
+  }, [setAppStateObject, setAppStateLoading, setAppStateObjectSpecial, refresh])
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -49,6 +52,11 @@ function App() {
 
       <div>
         <LoadingList isLoading={appStateLoading} contents={appStateObject} />
+      </div>
+      <h1 className="First-Title">Contenidos especiales</h1>
+
+      <div>
+        <LoadingList isLoading={appStateLoading} contents={appStateObjectSpecial} />
       </div>
       <br/>
       <div>
