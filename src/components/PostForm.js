@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { postFetch } from './FetchMethods'
+import "./PostForm.css"
 
 const PostForm = ({ refetch }) => {
   const [name, setName] = useState('')
